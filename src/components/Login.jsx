@@ -91,8 +91,9 @@ export default function Login() {
           onBlur={handleBlur}
           value={form.email}
           invalid={touched.email && !!errors.email}
+          data-testid="email-input"
         />
-        <FormFeedback>{errors.email}</FormFeedback>
+        <FormFeedback data-testid="email-error">{errors.email}</FormFeedback>
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Password</Label>
@@ -105,8 +106,11 @@ export default function Login() {
           onBlur={handleBlur}
           value={form.password}
           invalid={touched.password && !!errors.password}
+          data-testid="password-input"
         />
-        <FormFeedback>{errors.password}</FormFeedback>
+        <FormFeedback data-testid="password-error">
+          {errors.password}
+        </FormFeedback>
       </FormGroup>
       <FormGroup>
         <Input
@@ -117,6 +121,7 @@ export default function Login() {
           checked={form.terms}
           name="terms"
           id="terms"
+          data-testid="terms-input"
         />
         <label htmlFor="terms">
           I agree to terms of service and privacy policy
@@ -124,7 +129,7 @@ export default function Login() {
       </FormGroup>
 
       <FormGroup className="text-center p-4">
-        <Button disabled={!isValid} color="primary">
+        <Button disabled={!isValid} color="primary" data-testid="submit-button">
           Sign In
         </Button>
       </FormGroup>
